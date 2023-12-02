@@ -13,6 +13,7 @@ const app = express();
 
 /* BEGIN CONFIGURATION */
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
 /* END CONFIGURATION */
 
 app.listen(port, () => {
