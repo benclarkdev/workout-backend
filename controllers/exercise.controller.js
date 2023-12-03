@@ -2,23 +2,6 @@ const asyncHandler = require('express-async-handler');
 
 const exerciseRepository = require('../repositories/exercise.repository');
 
-const pageIndex = asyncHandler(async (req,res,next) => {
-  let allExercises = exerciseRepository.readAll();
-  res.render('exercises/index');
-});
-
-const pageAdd = asyncHandler(async (req,res,next) => {
-  res.render('exercises/add');
-});
-
-const pageUpdate = asyncHandler(async (req,res,next) => {
-  res.render('exercises/update');
-});
-
-const pageDelete = asyncHandler(async (req,res,next) => {
-  res.render('exercises/delete');
-});
-
 const actionAdd = asyncHandler(async (req,res,next) => {
   exerciseRepository.actionAdd();
 });

@@ -7,6 +7,7 @@ const actionAdd = asyncHandler(async (req,res,next) => {
 });
 
 const actionReadByDate = asyncHandler(async (req,res,next) => {
+  const date = new Date(req.query.date);
   return setRepository.readMany();
 });
 
