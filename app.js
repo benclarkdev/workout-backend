@@ -1,21 +1,23 @@
 // external dependencies
 const express = require('express');
 
+// internal dependencies
 const exerciseController = require('./controllers/exercise.controller');
-const historyController = require('./controllers/history.controller');
 const setController = require('./controllers/set.controller');
+const statsController = require('./controllers/stats.controller');
 
-const mongoClient = require('./mongo/mongo.client');
-
+// configuration
 const port = 3000;
 const app = express();
-
-/* BEGIN CONFIGURATION */
 app.use(express.static(__dirname + '/public'));
 /* END CONFIGURATION */
 
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log(`Example app listening on port ${port}`);
+  
+  let result = await setController.actionReadByExercise({exercise_id: 1}, null, (res) => console.log(res));
+
+  console.log(result);
 });
 
 app.get('/', (req, res, next) => {
@@ -27,7 +29,7 @@ app.get('/', (req, res, next) => {
 app.post('/exercise/create', exerciseController.actionAdd);
 
 // action - update exercise
-app.post('/exercise', exerciseController.actionUpdate);
+app.post('/exercise/:id', exerciseController.actionUpdate);
 
 // action - delete exercise 
 app.post('/exercise/delete/:id', exerciseController.actionDelete);
@@ -36,12 +38,8 @@ app.post('/exercise/delete/:id', exerciseController.actionDelete);
 app.post('/exercise/:id', exerciseController.actionRead);
 
 // action - read many exercises
-app.post('/exercise/delete/:id', exerciseController.actionReadMany);
+app.post('/exercises', exerciseController.actionReadMany);
 /* END EXERCISE ROUTES */
-
-/* BEGIN HISTORY ROUTES */
-app.get('/history/:id', exerciseController.getExerciseHistory);
-/* END HISTORY ROUTES */
 
 /* BEGIN SET ROUTES */
 // action - add set
@@ -50,3 +48,7 @@ app.post('/set/create', setController.actionAdd);
 // action - read by date
 app.get('/sets/byDate', setController.actionReadByDate);
 /* END SET ROUTES */
+
+/* BEGIN STATS ROUTES */
+app.get('/stats/historyForExercise/:id', statsController.getExerciseHistory);
+/* END STATS ROUTES */

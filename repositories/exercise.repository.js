@@ -2,21 +2,21 @@ const DB_NAME = "exercise";
 const COLLECTION_NAME = "exercises";
 
 // create
-async function insertOne(client, exercise){
+async function insertOne(exercise){
   const result = await client.db(DB_NAME)
     .collection(COLLECTION_NAME)
     .insertOne(exercise);
 }
 
 // read one
-async function readOne(client, argument){
+async function readOne(argument){
   const result = await client.db(DB_NAME)
     .collection(COLLECTION_NAME)
     .findOne(argument);
 }
 
 // read many
-async function readMany(client, argument){
+async function readMany(argument){
   const cursor = await client.db(DB_NAME)
     .collection(COLLECTION_NAME)
     .find(argument);
@@ -34,7 +34,7 @@ async function readAll(client){
 }
 
 // update one 
-async function updateOne(client, exercise){
+async function updateOne(exercise){
   // Create a filter for movies with the title "Random Harvest"
   const filter = { title: "Random Harvest" };
   /* Set the upsert option to insert a document if no documents match
@@ -52,7 +52,7 @@ async function updateOne(client, exercise){
 }
 
 // delete one
-async function deleteOne(client, id){ 
+async function deleteOne(id){ 
   // Update the first document that matches the filter
   const result = await movies.updateOne(filter, updateDoc, options);
 }

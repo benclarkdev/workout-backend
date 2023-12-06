@@ -1,17 +1,21 @@
-const asyncHandler = require('express-async-handler');
-
 const setRepository = require('../repositories/set.repository');
 
-const actionAdd = asyncHandler(async (req,res,next) => {
-  return setRepository.insertOne();
-});
+const actionAdd = async (req,res,next) => {
+  console.log('add', req.body);
+};
 
-const actionReadByDate = asyncHandler(async (req,res,next) => {
+const actionReadByDate = async (req,res,next) => {
   const date = new Date(req.query.date);
-  return setRepository.readMany();
-});
+  return setRepository.readMany({date: date});
+};
+
+const actionReadByExercise = async (req,res,next) => {
+  const exercise_id = 1;
+  return await setRepository.readMany({exercise_id: exercise_id});
+};
 
 module.exports = {
   actionAdd,
-  actionReadByDate
+  actionReadByDate,
+  actionReadByExercise
 };
