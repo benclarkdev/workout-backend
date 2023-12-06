@@ -10,7 +10,7 @@ const actionReadByDate = async (req,res,next) => {
 };
 
 const actionReadByExercise = async (req,res,next) => {
-  const exercise_id = 1;
+  const exercise_id = req.exercise_id;
   return await setRepository.readMany({exercise_id: exercise_id});
 };
 
