@@ -15,9 +15,11 @@ app.use(express.static(__dirname + '/public'));
 app.listen(port, async () => {
   console.log(`Example app listening on port ${port}`);
   
-  let result = await setController.actionReadByExercise({exercise_id: 1}, null, (res) => console.log(res));
+  let setResult = await setController.actionReadByExercise({exercise_id: 1}, null, (err) => console.error('error', err));
+  console.log(setResult);
 
-  console.log(result);
+  let exerciseResult = await exerciseController.actionRead({exercise_id: 1}, null, (err) => console.error('error', err));
+  console.log(exerciseResult);
 });
 
 app.get('/', (req, res, next) => {

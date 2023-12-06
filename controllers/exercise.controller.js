@@ -13,7 +13,7 @@ const actionDelete = async (req,res,next) => {
 };
 
 const actionRead = async (req,res,next) => {
-  exerciseRepository.actionRead();
+  return await exerciseRepository.readMany(req);
 };
 
 const actionReadMany = async (req,res,next) => {
