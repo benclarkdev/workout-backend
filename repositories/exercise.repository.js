@@ -8,14 +8,14 @@ async function insertOne(exercise){
   return await mongoClient.insertOne(DB_NAME, COLLECTION_NAME, exercise);
 }
 
-// read one
-async function readOne(argument){
-  return await mongoClient.readOne(DB_NAME, COLLECTION_NAME, argument);
-}
-
 // read many
 async function readMany(argument){
   return await mongoClient.readMany(DB_NAME, COLLECTION_NAME, argument);
+}
+
+// read many
+async function readOne(argument){
+  return await mongoClient.readOne(DB_NAME, COLLECTION_NAME, argument);
 }
 
 // update one 

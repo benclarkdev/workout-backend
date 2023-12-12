@@ -1,18 +1,16 @@
 const mongoClient = require('../mongo/mongo.client');
 
-const DB_NAME = "exercise";
-const COLLECTION_NAME = "sets";
+const DB_NAME = 'exercise';
+const COLLECTION_NAME = 'sets';
 
 // create
 async function insertOne(set){
-  const result = await client.db(DB_NAME)
-    .collection(COLLECTION_NAME)
-    .insertOne(set);
+  return await mongoClient.insertOne(DB_NAME, COLLECTION_NAME, set);
 }
 
-// read one
-async function readOne(argument){
-  
+// insert many
+async function insertMany(sets){
+  return await mongoClient.insertMany(DB_NAME, COLLECTION_NAME, sets);
 }
 
 // read many
@@ -22,6 +20,6 @@ async function readMany(argument){
 
 module.exports = {
   insertOne,
-  readOne,
+  insertMany,
   readMany
 };
