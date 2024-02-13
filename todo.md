@@ -6,4 +6,7 @@
     ii. How hard has today's workout been?
 
   How would you model this?
-  
+
+2. calendar/history view
+3. some exercises are one set
+4. some exercises are assisted

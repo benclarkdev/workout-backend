@@ -1,7 +1,6 @@
 const { MongoClient } = require('mongodb');
 
 async function aggregate(dbName, collectionName, argumentArray) {
-  const uri = "mongodb+srv://benclarkdev:VhnMQf5SHh0gfluM@vasa-cluster.cwtdawl.mongodb.net/";
   const client = new MongoClient(uri);
 
   try {
@@ -18,7 +17,6 @@ async function aggregate(dbName, collectionName, argumentArray) {
 }
 
 async function deleteOne(dbName, collectionName, argument) {
-  const uri = "mongodb+srv://benclarkdev:VhnMQf5SHh0gfluM@vasa-cluster.cwtdawl.mongodb.net/";
   const client = new MongoClient(uri);
 
   try {
@@ -35,7 +33,6 @@ async function deleteOne(dbName, collectionName, argument) {
 }
 
 async function insertOne(dbName, collectionName, argument) {
-  const uri = "mongodb+srv://benclarkdev:VhnMQf5SHh0gfluM@vasa-cluster.cwtdawl.mongodb.net/";
   const client = new MongoClient(uri);
 
   try {
@@ -52,7 +49,6 @@ async function insertOne(dbName, collectionName, argument) {
 }
 
 async function insertMany(dbName, collectionName, argument) {
-  const uri = "mongodb+srv://benclarkdev:VhnMQf5SHh0gfluM@vasa-cluster.cwtdawl.mongodb.net/";
   const client = new MongoClient(uri);
 
   try {
@@ -67,7 +63,6 @@ async function insertMany(dbName, collectionName, argument) {
 }
 
 async function readOne(dbName, collectionName, argument) {
-  const uri = "mongodb+srv://benclarkdev:VhnMQf5SHh0gfluM@vasa-cluster.cwtdawl.mongodb.net/";
   const client = new MongoClient(uri);
 
   try {
@@ -82,7 +77,6 @@ async function readOne(dbName, collectionName, argument) {
 }
 
 async function readMany(dbName, collectionName, argument) {
-  const uri = "mongodb+srv://benclarkdev:VhnMQf5SHh0gfluM@vasa-cluster.cwtdawl.mongodb.net/";
   const client = new MongoClient(uri);
 
   try {
@@ -97,7 +91,6 @@ async function readMany(dbName, collectionName, argument) {
 }
 
 async function updateOne(dbName, collectionName, argument) {
-  const uri = "mongodb+srv://benclarkdev:VhnMQf5SHh0gfluM@vasa-cluster.cwtdawl.mongodb.net/";
   const client = new MongoClient(uri);
   
   try {
