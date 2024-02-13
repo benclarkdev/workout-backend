@@ -1,4 +1,7 @@
 const { MongoClient } = require('mongodb');
+const { DOT_ENV_CONFIG } = require('dotenv').config();
+
+const uri = DOT_ENV_CONFIG.MONGO_URI;
 
 async function aggregate(dbName, collectionName, argumentArray) {
   const client = new MongoClient(uri);
